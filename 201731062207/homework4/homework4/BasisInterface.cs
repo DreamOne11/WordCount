@@ -10,6 +10,5 @@ namespace homework4
         void CountWord();
         void CountLine();
         void CountFrequency();
-        void Output();
     }
 }
