@@ -11,108 +11,95 @@ namespace homework4
     class BasisFunction: BasisInterface
     {
 
-        /*
-         * 整形变量charNum保存字符数
-         * 整形变量fileNum保存文档行数
-         * 整形变量wordNum保存符合要求的单词数
-         * 字符串变量path用于接受输入的文档路径
-         * 字符串变量content保存从文档读取的内容
-         * 字符串数组word保存从content分解的单词
-         * Dictionary型变量wordAndFrequency保存word中的单词及出现频率
-         */
-       
-        int charNum;
-        int fileLine;
-        int wordNum;
-        string path;
-        string content;
-        public static string[] allWord;
-        public static Dictionary<string, int> wordAndFrequency = new Dictionary<string, int>();
-
-        /*
-         * CountChar方法用于获取文档内容的字符数
-         * 方法无需参数，由ReadFile方法调用
-         */
-        public void CountChar()
+        //CountChar用于计算文档内容中的字符数
+        //方法接收一个保存文档内容的字符串参数content
+        public string CountChar(string content)
         {
-
-            //throw new NotImplementedException();
-
+            int charNum;
             charNum = content.Length;
+
             Console.WriteLine("字符数：" + charNum);
+            string finallCharnum = "字符数：" + charNum;
+            return finallCharnum;
         }
 
-        /*
-         * CountLine方法用于获取文档内容的行数
-         * 方法无需参数，由ReadFile方法调用
-         */
-        public void CountLine()
+
+        //CountLine用于计算文档内容的行数
+        //方法接收一个保存文档内容的字符串参数content
+        public string CountLine(string content)
         {
+            string temp = Regex.Replace(content, @"\n\s*\n", "\r\n");
 
-            //throw new NotImplementedException();
+            int lineNum = temp.Split('\n').Length;
 
-            using (StreamReader read = new StreamReader(path, Encoding.Default))
-            {
-                fileLine = read.ReadToEnd().Split('\n').Length;
-            }
-            Console.WriteLine("文本行数：" + fileLine);
+            Console.WriteLine("行数：" + lineNum);
+            string finallLinenum = "行数：" + lineNum;
+            return finallLinenum;
         }
 
-        /*
-         * CountWord方法用于获取文档内容中符合要求的单词数
-         * 方法无需参数，由ReadFile方法调用
-         */
-        public void CountWord(string pathIn)
+        //CountWord用于计算文档内容中符合条件的单词数
+        //方法接收一个保存文档内容的字符串参数content
+        //方法返回一个保存所有符合条件单词的string[]变量rightWord
+        public string[] CountWord(string content)
         {
-
-            //throw new NotImplementedException();
-
             string lowContent;
-            lowContent = pathIn.ToLower();
+            lowContent = content.ToLower();
 
-            allWord = Regex.Split(lowContent, @"\W+");
-            wordNum = allWord.Length;
+            string[] allWord = Regex.Split(lowContent, @"\W+");
+            string[] rightWord = new string[allWord.Length];
+            int num = 0;
             for (int i = 0; i < allWord.Length; i++)
             {
+                bool judge = true;
+
                 if (allWord[i].Length < 4)
                 {
-                    allWord[i] = "//0";
-                    wordNum--;
+                    judge = false;
                 }
                 else
                 {
-                    for (int j = 0; j < 4; j++)
+                    for (int l = 0; l < 4; l++)
                     {
-                        if ((allWord[i][j] < 97) || (allWord[i][j] > 122))
+                        if ((allWord[i][l] < 97) || (allWord[i][l] > 122))
                         {
-                            allWord[i] = "//0";
-                            wordNum--;
+                            judge = false;
                             break;
                         }
                     }
                 }
-            }
-            Console.WriteLine("单词数：" + wordNum);
-        }
 
-        /*
-         * CountFrequency方法用于从word中计算每个单词出现的频率并排序
-         * 方法无需参数，由ReadFile方法调用
-         */
-        public void CountFrequency()
-        {
-
-            //throw new NotImplementedException();
-            
-            for (int i = 0; i < allWord.Length; i++)
-            {
-                if (wordAndFrequency.ContainsKey(allWord[i]))
+                if (judge)
                 {
-                    wordAndFrequency[allWord[i]]++;
+                    rightWord[num] = allWord[i];
+                    num++;
+                }
+            }
+
+            string[] word = new string[num];
+            for (int i = 0; i < num; i++)
+            {
+                word[i] = rightWord[i];
+            }
+
+            Console.WriteLine("单词数：" + num);
+
+            return word;
+        }
+        //CountWord用于计算文档内容中符合条件的单词的频率并排序
+        //方法接收一个保存所有符合条件单词的字符串数组rightWord和一个int变量outNum输入指定至多前outNum多的单词和对应的频率
+        //方法返回一个保存有经过排序的单词和对应频率的Dictionary<string, int>变量result
+        public Dictionary<string, int> CountFrequency(string[] word, int outNum)
+        {
+            Dictionary<string, int> wordAndFrequency = new Dictionary<string, int>();
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (wordAndFrequency.ContainsKey(word[i]))
+                {
+                    wordAndFrequency[word[i]]++;
                 }
                 else
                 {
-                    wordAndFrequency[allWord[i]] = 1;
+                    wordAndFrequency[word[i]] = 1;
                 }
             }
 
@@ -120,41 +107,72 @@ namespace homework4
             int count = 0;
             foreach (KeyValuePair<string, int> kvp in result)
             {
-                if (kvp.Key != "//0")
-                {
-                    Console.WriteLine(kvp.Key + ":" + kvp.Value);
-                    count++;
-                }
-                if (count == 10)
+                Console.WriteLine(kvp.Key + ":" + kvp.Value);
+                count++;
+                if (count == outNum)
                 {
                     break;
                 }
             }
-            
+
+            return result;
         }
 
-        /*
-         * ReadFile方法用于读取指定文档中的内容
-         * 方法无需参数，由主函数调用
-         */
+        //ProcessDoc用于调用CountChar、CountLine、CountWord、CountFrequency方法对文档内容进行处理
+        //方法接收一个保存文档内容的字符串参数content
+        public void ProcessDoc(string content)
+        {
+            string[] word;
+
+            CountChar(content);
+            CountLine(content);
+            word = CountWord(content);
+            CountFrequency(word, 10);
+        }
+
+        //Read File用于获取用户输入的文档路径并读取文档内容
         public void ReadFile()
         {
-
-            Console.WriteLine("请输入需要读取的文件的路径：");
+            string path;
+            Console.WriteLine("请输入需要读取的文档的路径：");
             path = Console.ReadLine();
             Console.WriteLine();
 
-            content = File.ReadAllText(path);
-            Console.WriteLine("文件内容如下：");
-            Console.WriteLine(content);
-            Console.WriteLine();
+            if (File.Exists(path))
+            {
+                string content;
+                content = File.ReadAllText(path);
+                Console.WriteLine("文档内容如下：");
+                Console.WriteLine(content);
+                Console.WriteLine();
 
-            Console.WriteLine("文件内容统计结果如下：");
-            CountChar();
-            CountLine();
-            CountWord(content);
-            CountFrequency();
-            Console.ReadKey();
+                Console.WriteLine("文档处理完成！");
+                ProcessDoc(content);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("文档不存在！");
+                Console.ReadKey();
+            }
+        }
+
+        public static void save(string content,string pathOutput)
+        {
+            try
+            {
+                if (content != null)
+                {
+                    using (StreamWriter sw = new StreamWriter(pathOutput, true))
+                    {
+                        sw.WriteLine(content);
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("写入文档失败！");
+            }
         }
     }
 }

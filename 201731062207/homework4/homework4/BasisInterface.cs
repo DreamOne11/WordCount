@@ -6,9 +6,9 @@ namespace homework4
 {
     interface BasisInterface
     {
-        void CountChar();
-        void CountWord(string pathIn);
-        void CountLine();
-        void CountFrequency();
+        string CountChar(string content);
+        string CountLine(string content);
+        string[] CountWord(string content);
+        Dictionary<string, int> CountFrequency(string[] word, int outNum);
     }
 }

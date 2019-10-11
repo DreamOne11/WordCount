@@ -39,17 +39,20 @@ namespace homework4
 
                 if(num1>0&&num2==0)
                 {
-                      
+                    addFunction.countPhrases(content, num1);
                 }
                 else if(num2>0&&num1==0)
                 {
-                    addFunction.CountWord(content);
-                    addFunction.outputNum(num2);
+                    
+                    addFunction.outputNum(content,num2);
                 }
                 else if(num1>0&&num2>0)
                 {
 
                 }
+
+                
+
             }
 
 
