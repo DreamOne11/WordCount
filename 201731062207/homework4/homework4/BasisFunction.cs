@@ -20,13 +20,14 @@ namespace homework4
          * 字符串数组word保存从content分解的单词
          * Dictionary型变量wordAndFrequency保存word中的单词及出现频率
          */
+       
         int charNum;
         int fileLine;
         int wordNum;
         string path;
         string content;
-        string[] allWord;
-        Dictionary<string, int> wordAndFrequency = new Dictionary<string, int>();
+        public static string[] allWord;
+        public static Dictionary<string, int> wordAndFrequency = new Dictionary<string, int>();
 
         /*
          * CountChar方法用于获取文档内容的字符数
@@ -61,13 +62,13 @@ namespace homework4
          * CountWord方法用于获取文档内容中符合要求的单词数
          * 方法无需参数，由ReadFile方法调用
          */
-        public void CountWord()
+        public void CountWord(string pathIn)
         {
 
             //throw new NotImplementedException();
 
             string lowContent;
-            lowContent = content.ToLower();
+            lowContent = pathIn.ToLower();
 
             allWord = Regex.Split(lowContent, @"\W+");
             wordNum = allWord.Length;
@@ -151,7 +152,7 @@ namespace homework4
             Console.WriteLine("文件内容统计结果如下：");
             CountChar();
             CountLine();
-            CountWord();
+            CountWord(content);
             CountFrequency();
             Console.ReadKey();
         }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homework4", "homework4\homework4.csproj", "{35B1A01F-0B30-49F8-BE21-593B163C3081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wordCount", "homework4\wordCount.csproj", "{35B1A01F-0B30-49F8-BE21-593B163C3081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

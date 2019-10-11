@@ -8,26 +8,28 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\charm\\.nuget\\packages\\": {}
+    "C:\\Users\\15199\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charm\\Desktop\\WordCount\\201731062207\\homework4\\homework4\\homework4.csproj",
-      "projectName": "homework4",
-      "projectPath": "C:\\Users\\charm\\Desktop\\WordCount\\201731062207\\homework4\\homework4\\homework4.csproj",
-      "packagesPath": "C:\\Users\\charm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charm\\Desktop\\WordCount\\201731062207\\homework4\\homework4\\obj\\",
+      "projectUniqueName": "C:\\Users\\15199\\Desktop\\专业课程\\系统分析与设计\\WordCount\\201731062207\\homework4\\homework4\\wordCount.csproj",
+      "projectName": "wordCount",
+      "projectPath": "C:\\Users\\15199\\Desktop\\专业课程\\系统分析与设计\\WordCount\\201731062207\\homework4\\homework4\\wordCount.csproj",
+      "packagesPath": "C:\\Users\\15199\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\15199\\Desktop\\专业课程\\系统分析与设计\\WordCount\\201731062207\\homework4\\homework4\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\charm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\15199\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

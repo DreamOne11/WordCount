@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "homework4/1.0.0": {
+      "wordCount/1.0.0": {
         "runtime": {
-          "homework4.dll": {}
+          "wordCount.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "homework4/1.0.0": {
+    "wordCount/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
