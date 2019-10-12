@@ -9,3 +9,14 @@ C:\Users\15199\Desktop\专业课程\系统分析与设计\WordCount\201731062207
 C:\Users\15199\Desktop\专业课程\系统分析与设计\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.dll
 C:\Users\15199\Desktop\专业课程\系统分析与设计\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.pdb
 C:\Users\15199\Desktop\专业课程\系统分析与设计\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.csprojAssemblyReference.cache
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.exe
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.deps.json
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.runtimeconfig.json
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.runtimeconfig.dev.json
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.dll
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\bin\Debug\netcoreapp3.0\wordCount.pdb
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.csprojAssemblyReference.cache
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.AssemblyInfoInputs.cache
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.AssemblyInfo.cs
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.dll
+C:\Users\charm\Desktop\WordCount\201731062207\homework4\homework4\obj\Debug\netcoreapp3.0\wordCount.pdb

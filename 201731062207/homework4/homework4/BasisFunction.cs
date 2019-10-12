@@ -48,7 +48,7 @@ namespace homework4
             int num = 0;
             for (int i = 0; i < allWord.Length; i++)
             {
-                bool judge = true;
+                /*bool judge = true;
 
                 if (allWord[i].Length < 4)
                 {
@@ -64,9 +64,9 @@ namespace homework4
                             break;
                         }
                     }
-                }
+                }*/
 
-                if (judge)
+                if (Regex.IsMatch(allWord[i], @"^[a-z][a-z][a-z][a-z]"))
                 {
                     rightWord[num] = allWord[i];
                     num++;

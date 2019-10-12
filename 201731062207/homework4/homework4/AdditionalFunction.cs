@@ -15,7 +15,7 @@ namespace homework4
        
 
         //按照参数组合词组，并输出每个词组
-        public Dictionary<string,int> countPhrases(string[] oldWord,int num1)   
+        public new Dictionary<string,int> countPhrases(string[] oldWord,int num1)   
         {
 
             string[] newWord = new string[oldWord.Length]; 
@@ -45,7 +45,7 @@ namespace homework4
         }
 
         //按照参数输出n个高频词
-        public void outputNum(string[] Word,int num2)
+        public new void outputNum(string[] Word,int num2)
         {
             CountFrequency(Word,num2);
         }
