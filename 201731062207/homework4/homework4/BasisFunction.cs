@@ -13,34 +13,32 @@ namespace homework4
 
         //CountChar用于计算文档内容中的字符数
         //方法接收一个保存文档内容的字符串参数content
-        public string CountChar(string content)
+        public void CountChar(string content)
         {
             int charNum;
             charNum = content.Length;
 
             Console.WriteLine("字符数：" + charNum);
-            string finallCharnum = "字符数：" + charNum;
-            return finallCharnum;
+            writeToFile("字符数：" + charNum, Program.PathOutput);
         }
 
 
         //CountLine用于计算文档内容的行数
         //方法接收一个保存文档内容的字符串参数content
-        public string CountLine(string content)
+        public void CountLine(string content)
         {
             string temp = Regex.Replace(content, @"\n\s*\n", "\r\n");
 
             int lineNum = temp.Split('\n').Length;
 
             Console.WriteLine("行数：" + lineNum);
-            string finallLinenum = "行数：" + lineNum;
-            return finallLinenum;
+            writeToFile("行数：" + lineNum, Program.PathOutput);
         }
 
         //CountWord用于计算文档内容中符合条件的单词数
         //方法接收一个保存文档内容的字符串参数content
         //方法返回一个保存所有符合条件单词的string[]变量rightWord
-        public string[] CountWord(string content)
+       public string[] CountWord(string content)
         {
             string lowContent;
             lowContent = content.ToLower();
@@ -81,7 +79,8 @@ namespace homework4
                 word[i] = rightWord[i];
             }
 
-            Console.WriteLine("单词数：" + num);
+           Console.WriteLine("单词数：" + num);
+           writeToFile("单词数：" + num, Program.PathOutput);
 
             return word;
         }
@@ -108,6 +107,7 @@ namespace homework4
             foreach (KeyValuePair<string, int> kvp in result)
             {
                 Console.WriteLine(kvp.Key + ":" + kvp.Value);
+                writeToFile(kvp.Key + ":" + kvp.Value, Program.PathOutput);
                 count++;
                 if (count == outNum)
                 {
@@ -157,7 +157,8 @@ namespace homework4
             }
         }
 
-        public static void save(string content,string pathOutput)
+
+        public static void writeToFile(string content, string pathOutput)
         {
             try
             {
