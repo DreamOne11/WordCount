@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace homework4
 {
-    class BasisFunction: BasisInterface
+    class BasisFunction: countwordInterface
     {
 
         //CountChar用于计算文档内容中的字符数
@@ -174,6 +174,16 @@ namespace homework4
             {
                 Console.WriteLine("写入文档失败！");
             }
+        }
+
+        public Dictionary<string, int> countPhrases(string[] oldWord, int num1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void outputNum(string[] Word, int num2)
+        {
+            throw new NotImplementedException();
         }
     }
 }
