@@ -6,8 +6,8 @@ namespace homework4
 {
     interface countwordInterface
     {
-        void CountChar(string content);
-        void CountLine(string content);
+        int CountChar(string content);
+        int CountLine(string content);
         string[] CountWord(string content);
         Dictionary<string, int> CountFrequency(string[] word, int outNum);
         public Dictionary<string, int> countPhrases(string[] oldWord, int num1);

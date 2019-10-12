@@ -8,24 +8,26 @@ using System.Text.RegularExpressions;
 
 namespace homework4
 {
-    class BasisFunction: countwordInterface
+    public class BasisFunction: countwordInterface
     {
 
         //CountChar用于计算文档内容中的字符数
         //方法接收一个保存文档内容的字符串参数content
-        public void CountChar(string content)
+        public int CountChar(string content)
         {
             int charNum;
             charNum = content.Length;
 
             Console.WriteLine("字符数：" + charNum);
             writeToFile("字符数：" + charNum, Program.PathOutput);
+
+            return charNum;
         }
 
 
         //CountLine用于计算文档内容的行数
         //方法接收一个保存文档内容的字符串参数content
-        public void CountLine(string content)
+        public int CountLine(string content)
         {
             string temp = Regex.Replace(content, @"\n\s*\n", "\r\n");
 
@@ -33,6 +35,8 @@ namespace homework4
 
             Console.WriteLine("行数：" + lineNum);
             writeToFile("行数：" + lineNum, Program.PathOutput);
+
+            return lineNum;
         }
 
         //CountWord用于计算文档内容中符合条件的单词数
