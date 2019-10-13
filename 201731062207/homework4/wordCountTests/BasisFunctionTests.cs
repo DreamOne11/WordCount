@@ -72,7 +72,7 @@ namespace homework4.Tests
 
             //测试7 测试CountFrequency方法得到的结果单词排序是否正确
             int count = 0;
-            foreach(KeyValuePair<string, int> kvp in result)
+            foreach (KeyValuePair<string, int> kvp in result)
             {
                 Assert.AreEqual(word[count], kvp.Key);
                 count++;
@@ -85,6 +85,21 @@ namespace homework4.Tests
                 Assert.AreEqual(frequency[count], kvp.Value);
                 count++;
             }
+        }
+
+        [TestMethod()]
+        public void writeToFileTest()
+        {
+            BasisFunction basisFunction = new BasisFunction();
+            Assert.IsTrue(basisFunction.writeToFile("Not Null", "C:\test.txt"));
+            Assert.IsFalse(basisFunction.writeToFile(null, "C:\test.txt"));
+        }
+
+        [TestMethod()]
+        public void ReadFileTest()
+        {
+            BasisFunction basisFunction = new BasisFunction();
+            Assert.IsFalse(basisFunction.ReadFile(null));
         }
     }
 }

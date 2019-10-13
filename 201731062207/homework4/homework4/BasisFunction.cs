@@ -52,24 +52,6 @@ namespace homework4
             int num = 0;
             for (int i = 0; i < allWord.Length; i++)
             {
-                /*bool judge = true;
-
-                if (allWord[i].Length < 4)
-                {
-                    judge = false;
-                }
-                else
-                {
-                    for (int l = 0; l < 4; l++)
-                    {
-                        if ((allWord[i][l] < 97) || (allWord[i][l] > 122))
-                        {
-                            judge = false;
-                            break;
-                        }
-                    }
-                }*/
-
                 if (Regex.IsMatch(allWord[i], @"^[a-z][a-z][a-z][a-z]"))
                 {
                     rightWord[num] = allWord[i];
@@ -135,39 +117,37 @@ namespace homework4
         }
 
         //Read File用于获取用户输入的文档路径并读取文档内容
-        public void ReadFile()
+        public bool ReadFile(string path)
         {
-            string path;
-            Console.WriteLine("请输入需要读取的文档的路径：");
-            path = Console.ReadLine();
-            Console.WriteLine();
-
-            if (File.Exists(path))
-            {
-                string content;
-                content = File.ReadAllText(path);
-                Console.WriteLine("文档内容如下：");
-                Console.WriteLine(content);
-                Console.WriteLine();
-
-                Console.WriteLine("文档处理完成！");
-                ProcessDoc(content);
-                Console.ReadKey();
+            bool test1=false;
+            try
+            { 
+                if (File.Exists(path))
+                 {
+                     test1 = true;
+                     string content;
+                     content = File.ReadAllText(path);
+                     Console.WriteLine("文档处理完成！");
+                     ProcessDoc(content);
+                 }
             }
-            else
+
+            catch
             {
-                Console.WriteLine("文档不存在！");
-                Console.ReadKey();
+                  Console.WriteLine("文档不存在！");
             }
+            return test1;
         }
 
 
-        public static void writeToFile(string content, string pathOutput)
+        public bool writeToFile(string content, string pathOutput)
         {
+            bool test = false;
             try
             {
                 if (content != null)
                 {
+                    test = true;
                     using (StreamWriter sw = new StreamWriter(pathOutput, true))
                     {
                         sw.WriteLine(content);
@@ -178,6 +158,7 @@ namespace homework4
             {
                 Console.WriteLine("写入文档失败！");
             }
+            return test;
         }
 
         public Dictionary<string, int> countPhrases(string[] oldWord, int num1)
