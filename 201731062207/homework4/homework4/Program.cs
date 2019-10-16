@@ -65,6 +65,10 @@ namespace homework4
                      addFunction.outputNum(Word, num2);
                      addFunction.countPhrases(Word, num1);
                    }
+                     else if(num1==0&&num2==0)
+                    {
+                        addFunction.CountFrequency(Word,10);
+                    }
                }
 
                     else                      

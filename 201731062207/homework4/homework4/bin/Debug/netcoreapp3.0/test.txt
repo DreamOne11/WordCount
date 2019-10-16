@@ -1,0 +1,13 @@
+字符数：316
+单词数：32
+行数：8
+been:2
+rain:2
+beautiful:1
+brown:1
+down:1
+earth:1
+faced:1
+flow:1
+freckle:1
+gushes:1
